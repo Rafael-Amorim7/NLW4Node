@@ -1,8 +1,7 @@
 import 'reflect-metadata';
 import express from 'express';
 import "./database";
-
-const app = express();
+import { router } from './router';
 
 /* 
   GET => Buscar
@@ -12,15 +11,9 @@ const app = express();
   PATCH => Alteração específica
 */
 
-app.get("/", (req, res) => {
-   return res.json({message:"Hello World"})})
+const app = express();
 
-
-app.post("/", (req, res) => {
-  
-  // Dados a serem recebidos
-
-  return res.json({message:"Dados foram salvos"})
-})
+app.use(express.json());
+app.use(router);
 
 app.listen(3333, () => console.log('Server is running!'));
