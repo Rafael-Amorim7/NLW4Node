@@ -9,12 +9,23 @@ describe('Users', () => {
   })
   
   it("Should be able to create a new user", async () => {
-  const res = await request(app).post("/users")
-  .send({
+    const res = await request(app).post("/users")
+    .send({
     name: 'Rafael Example',
     email: 'rafa_example@hotmail.com'
-  });
+    });
 
     expect(res.status).toBe(201);
   })
+
+  it("Should not be able to create a new user with existing email", async () => {
+    const res = await request(app).post("/users")
+    .send({
+    name: 'Rafael Example',
+    email: 'rafa_example@hotmail.com'
+    });
+
+    expect(res.status).toBe(400);
+  })
+
 })
