@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import express from 'express';
-import "./database";
+import createConnection from "./database";
 import { router } from './router';
 
 /* 
@@ -10,6 +10,8 @@ import { router } from './router';
   DELETE => Deletar
   PATCH => Alteração específica
 */
+
+createConnection()
 
 const app = express();
 
