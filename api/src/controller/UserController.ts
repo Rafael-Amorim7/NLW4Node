@@ -8,6 +8,10 @@ class UserController {
     
     const usersRepository = getCustomRepository(UsersRepository);
 
+    const user = usersRepository.create({
+      name, email
+    })
+    
     const usersAlrearyExists = await usersRepository.findOne({ email })
     if (usersAlrearyExists){
       return res.status(400).json({
@@ -15,9 +19,6 @@ class UserController {
       });
     }
 
-    const user = usersRepository.create({
-      name, email
-    })
 
     await usersRepository.save(user);
 
