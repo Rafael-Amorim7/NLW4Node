@@ -1,5 +1,7 @@
-import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm"
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm"
 import { v4 as uuid } from 'uuid';
+import { Survey } from "./Survey";
+import { User } from "./User";
 
 @Entity("surveys_users")
 class SurveysUsers {
@@ -9,8 +11,16 @@ class SurveysUsers {
   @Column()
   users_id: string;
 
+  @ManyToOne(() => User)
+  @JoinColumn({name:"users_id"})
+  users:User;
+
   @Column()
   surveys_id: string;
+
+  @ManyToOne(() => Survey)
+  @JoinColumn({name:"surveys_id"})
+  surveys:Survey;
 
   @Column()
   value: number;
