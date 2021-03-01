@@ -3,8 +3,6 @@ import { SurveysUsers } from "../models/SurveysUsers";
 
 
 @EntityRepository(SurveysUsers)
-class SurveysUsersRepository extends Repository<SurveysUsers> {
-
-}
+class SurveysUsersRepository extends Repository<SurveysUsers> {}
 
 export { SurveysUsersRepository };

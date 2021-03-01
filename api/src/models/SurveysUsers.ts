@@ -13,7 +13,7 @@ class SurveysUsers {
   surveys_id: string;
 
   @Column()
-  value: number
+  value: number;
 
   @CreateDateColumn()
   created_at: Date;

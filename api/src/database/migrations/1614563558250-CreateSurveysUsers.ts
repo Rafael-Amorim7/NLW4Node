@@ -26,7 +26,7 @@ export class CreateSurveysUsers1614563558250 implements MigrationInterface {
                         isNullable:true
                     },
                     {
-                        name:"create_at",
+                        name:"created_at",
                         type:"timestamp",
                         default:"now()"
                     }
